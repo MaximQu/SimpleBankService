@@ -1,35 +1,46 @@
 package service;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BankAccountService {
-    private int money = 0;
-    private final List<String> operationHistory = new ArrayList<>();
+    private int bankAccount = 0;
+    private final List<Transaction> operationHistory = new ArrayList<>();
 
     public void depositMoney(int value) {
-        money += value;
-        operationHistory.add("deposit: " + value);
+        if (value > 0) {
+            bankAccount += value;
+            operationHistory.add(new Transaction(TransactionType.DEPOSIT, LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS), value));
+        } else {
+            System.out.println("Only positive numbers are allowed");
+        }
     }
 
     public void withdrawMoney(int value) {
-        if (value > money) {
+        if (value > bankAccount) {
             System.out.println("Not enough money");
         } else {
-            money -= value;
-            operationHistory.add("withdraw: " + value);
+            bankAccount -= value;
+            operationHistory.add(new Transaction(TransactionType.WITHDRAW, LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS), value));
         }
     }
 
     public void printTransactionHistory() {
-        System.out.println("Here is your transaction history: ");
 
-        for (String option : operationHistory) {
-            System.out.println("\t" + option);
+        if (!operationHistory.isEmpty()) {
+            System.out.println("Here is your transaction history: ");
+
+            for (Transaction transaction : operationHistory) {
+                System.out.println(transaction.toString());
+            }
+        } else {
+            System.out.println("No transaction history");
         }
     }
 
     public void printBalance() {
-        System.out.println("Current balance is: " + money);
+        System.out.println("Current balance is: " + bankAccount);
     }
 }
