@@ -1,4 +1,4 @@
-package service;
+package banking.service;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

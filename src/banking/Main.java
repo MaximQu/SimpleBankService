@@ -1,4 +1,6 @@
-import service.BankAccountService;
+package banking;
+
+import banking.service.BankAccountService;
 
 import java.util.Scanner;
 
