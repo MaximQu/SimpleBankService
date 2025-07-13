@@ -1,6 +1,6 @@
-package oop.shape.figures;
+package shape.figures;
 
-import oop.shape.Shape;
+import shape.Shape;
 
 public class Rectangle extends Shape {
     private final int width;
@@ -14,4 +14,6 @@ public class Rectangle extends Shape {
     public double getArea() {
         return width * height;
     }
+
+    public void rectangle() {}
 }

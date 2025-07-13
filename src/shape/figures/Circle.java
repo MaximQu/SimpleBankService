@@ -1,6 +1,6 @@
-package oop.shape.figures;
+package shape.figures;
 
-import oop.shape.Shape;
+import shape.Shape;
 
 public class Circle extends Shape {
     private final double radius;

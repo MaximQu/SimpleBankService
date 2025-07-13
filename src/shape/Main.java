@@ -1,7 +1,8 @@
-package oop.shape;
+package shape;
 
-import oop.shape.figures.Circle;
-import oop.shape.figures.Rectangle;
+import shape.figures.Circle;
+import shape.figures.Rectangle;
+import shape.figures.Square;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class Main {
 
         Shape circle = new Circle(12);
         Shape rectangle = new Rectangle(5, 5);
-        Shape square = new Square(9);
+        Square square = new Square(9);
 
         shapes.add(circle);
         shapes.add(rectangle);
@@ -21,5 +22,6 @@ public class Main {
         for (Shape shape : shapes) {
             System.out.println("Area of shape: " + shape.getArea());
         }
+
     }
 }
